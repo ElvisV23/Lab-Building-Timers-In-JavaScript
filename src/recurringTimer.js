@@ -11,6 +11,8 @@
  * const timerId = recurringTimer("Hello, world!", 2000); // Logs "Hello, world!" every 2 seconds.
  */
 
+const { countdownTimer } = require("./countdown");
+
 /**
  * Function: stopRecurringTimer
  * Description: Stops a recurring timer using its ID.
@@ -23,10 +25,19 @@
  * stopRecurringTimer(timerId); // Stops the recurring timer started with the given ID.
  */
 function recurringTimer(message, interval) {
+  const timerId = setInterval(() => {
+    console.log(message);
+  }, interval);
+
   // Set up a timer using setInterval to log the message
   // Return the timer ID
+  return timerId;
 }
+
 
 function stopRecurringTimer(timerId) {
   // Stop the timer using clearInterval
+  return timerId;
 }
+
+module.exports = { recurringTimer, stopRecurringTimer};
